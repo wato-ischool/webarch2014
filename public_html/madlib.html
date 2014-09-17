@@ -7,11 +7,36 @@
         <meta name="viewport" content="width=device-width">
     </head>
     <body>
-		<form id="madlib-input">
+		<form id="madlib-input" name="madlibinput" action="#">
 			<p>Please Input your answers below!</p>
 			<!-- inputs... -->
+			<p>What is the person's name?</p>
+			<label>First name: <input type="text" name="firstname"></label>
+			<br>
+			<label>Last name: <input type="text" name="lastname"></label>
+			<br>
+			<p>What is the person's favorite number?</p>
+                        <label>Number: <input type="text" name="favoritenumber"></label>
+			<br>
+			<p>What is the person's favorite activity?</p>
+			<label>Eat <input type="radio" name="activity" value="eat"></label>
+			<br>
+			<label>Sleep <input type="radio" name="activity" value="sleep"></label>
+			<br>
+			<p>What is the person's favorite place?</p>
+			<label for="place">Place:</label>
+			<select name="place" id="place">
+				<option value="the park">the park</option>
+				<option value="the library">the library</option>
+			</select>
+			<p>What time does the activity begin?</p>
+			<label>before noon <input type="checkbox" name="time" value="before noon"></label>
+			<br>
+			<label>after noon <input type="checkbox" name="time" value="after noon"></label>
+			<p>
+			<input type="submit" value="Output Mad Libs">
 		</form>
-		
+		<p>
 		<div id="madlib-output">
 		</div>
 
@@ -21,20 +46,53 @@
 		-->
 
         <!-- You may add Javascript functions below -->
-        <script>
+        <script type="text/javascript">
+		document.madlibinput.onsubmit =
 			function validate() {
-				if ($("input:first").val() == "correct") {
-					$("#madlib-output").text("input: correct");
-				} else {
-					alert("Error!");
+				var firstname = document.forms["madlibinput"]["firstname"].value;
+				var lastname = document.forms["madlibinput"]["lastname"].value;
+				var favoritenumber = document.forms["madlibinput"]["favoritenumber"].value;
+				var activity = document.forms["madlibinput"]["activity"].value;
+				var place = document.forms["madlibinput"]["place"].value;
+				var time = document.forms["madlibinput"]["time"].value;
+				if (firstname == "" || lastname == "" || favoritenumber == ""
+					|| $("[name=activity]:checked").length == 0
+					|| $("[name=time]:checked").length == 0) {
+					alert("Please fill all required fields.");
+					$("#madlib-output").text("");
+     					return false;
 				}
+
+				if (favoritenumber.match(/^[0-9]+$/) == null) {
+                                        alert("The favorite number must contain only values between 0 and 9.");
+					$("#madlib-output").text("");
+                                        return false;
+
+				}
+
+				for (i = 0; i < document.forms["madlibinput"].activity.length; i++) { //
+					if (document.forms["madlibinput"].activity[i].checked) {
+						activity = document.forms["madlibinput"].activity[i].value;
+					}
+				}
+
+				var tags = document.getElementsByName("time");
+				var timeTags = "";
+				for (var i = 0; i < tags.length; ++i) {
+					if (tags[i].checked) {
+						if (timeTags != "") {
+							timeTags += " and ";
+						}
+						timeTags += tags[i].value;
+					}
+				}
+
+				$("#madlib-output").text(firstname + " " + lastname + ", who has " + favoritenumber + " cats,"
+					+ " likes to " + activity + " " + timeTags + " at " + place + ".");
+				
 				return false;
 			}
 
-			$(document).ready(function() {
-				$("#madlib-input").submit(validate);
-				console.log("ready!");
-			});
         </script>
     </body>
 </html>
