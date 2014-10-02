@@ -52,9 +52,6 @@ def wiki_put():
 # i253 Resource:
 # Information on the i253 class. Can be parameterized with `relationship`,
 # `name`, and `adjective` information
-#
-# TODO: The representation for this resource is broken. Fix it!
-# Set the correct MIME type to be able to view the image in your browser
 ##/
 @app.route('/i253')
 def i253():
@@ -62,6 +59,10 @@ def i253():
     relationship = request.args.get("relationship", "friend")
     name = request.args.get("name", "Jim")
     adjective = request.args.get("adjective", "fun")
+
+    accept = request.headers["Accept"]
+    image_png = "image/png"
+    text_plain = "text/plain"
 
     resp = flask.make_response(
             check_output(['convert', '-size', '600x400', 'xc:transparent',
@@ -73,10 +74,13 @@ def i253():
                   "text 30,60 'My %s %s said i253 was %s'" % (relationship, name, adjective),
                 '-raise', '30',
                 'png:-']), 200);
-    # Comment in to set header below
-    # resp.headers['Content-Type'] = '...'
+    if image_png in accept:
+      resp.headers['Content-Type'] = image_png
+    elif text_plain in accept:
+      resp.headers['Content-Type'] = text_plain
 
     return resp
+
 
 
 if __name__ == "__main__":
