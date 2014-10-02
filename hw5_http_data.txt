@@ -1,0 +1,27 @@
+1.
+
+GET /home?name=Jason%22Carter&title=Web%20Architecture%20253
+
+2.
+
+PUT /wiki HTTP/1.1
+Host: localhost
+Content-Length: 42
+Content-Type: application/x-www-form-urlencoded
+url=http://en.wikipedia.org/wiki/Main_Page
+
+2.1. Access http://people.ischool.berkeley.edu/~wato/server/wiki/ in a browser.
+
+3.
+
+POST /wiki HTTP/1.1
+Host: localhost
+Content-Length: 33
+Content-Type: application/x-www-form-urlencoded
+url=http://en.wikipedia.org/wiki/
+
+4.
+
+Modify app.py to have the following line:
+
+resp.headers['Content-Type'] = 'image/png'
