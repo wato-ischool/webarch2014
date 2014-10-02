@@ -62,7 +62,7 @@ def i253():
 
     accept = request.headers["Accept"]
     image_png = "image/png"
-    text_plain = "text/plain"
+    text_html = "text/html"
 
     resp = flask.make_response(
             check_output(['convert', '-size', '600x400', 'xc:transparent',
@@ -76,8 +76,8 @@ def i253():
                 'png:-']), 200);
     if image_png in accept:
       resp.headers['Content-Type'] = image_png
-    elif text_plain in accept:
-      resp.headers['Content-Type'] = text_plain
+    elif text_html in accept:
+      resp.headers['Content-Type'] = text_html
 
     return resp
 
