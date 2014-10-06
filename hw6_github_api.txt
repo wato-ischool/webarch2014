@@ -1,0 +1,151 @@
+1. There are 39 public repositories in jblomo.
+
+harbinger:~/webarch2014$ curl -i "https://api.github.com/users/jblomo" | grep -E "public_repos"
+"public_repos": 39,
+
+harbinger:~$ curl -i "https://api.github.com/users/jblomo"
+HTTP/1.1 200 OK
+Server: GitHub.com
+Date: Tue, 30 Sep 2014 20:29:24 GMT
+Content-Type: application/json; charset=utf-8
+Status: 200 OK
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 52
+X-RateLimit-Reset: 1412111880
+Cache-Control: public, max-age=60, s-maxage=60
+Last-Modified: Tue, 30 Sep 2014 16:42:02 GMT
+ETag: "bf5d0e2d24068c917c4d3a19bcfafe88"
+Vary: Accept
+X-GitHub-Media-Type: github.v3
+X-XSS-Protection: 1; mode=block
+X-Frame-Options: deny
+Content-Security-Policy: default-src 'none'
+Content-Length: 1255
+Access-Control-Allow-Credentials: true
+Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+Access-Control-Allow-Origin: *
+X-GitHub-Request-Id: 80204E10:3B46:EE960E2:542B12A4
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+X-Content-Type-Options: nosniff
+Vary: Accept-Encoding
+X-Served-By: a8d8e492d6966f0c23dee2eed64c678a
+
+{
+  "login": "jblomo",
+  "id": 45173,
+  "avatar_url": "https://avatars.githubusercontent.com/u/45173?v=2",
+  "gravatar_id": "",
+  "url": "https://api.github.com/users/jblomo",
+  "html_url": "https://github.com/jblomo",
+  "followers_url": "https://api.github.com/users/jblomo/followers",
+  "following_url": "https://api.github.com/users/jblomo/following{/other_user}",
+  "gists_url": "https://api.github.com/users/jblomo/gists{/gist_id}",
+  "starred_url": "https://api.github.com/users/jblomo/starred{/owner}{/repo}",
+  "subscriptions_url": "https://api.github.com/users/jblomo/subscriptions",
+  "organizations_url": "https://api.github.com/users/jblomo/orgs",
+  "repos_url": "https://api.github.com/users/jblomo/repos",
+  "events_url": "https://api.github.com/users/jblomo/events{/privacy}",
+  "received_events_url": "https://api.github.com/users/jblomo/received_events",
+  "type": "User",
+  "site_admin": false,
+  "name": "Jim Blomo",
+  "company": null,
+  "blog": "www.linkedin.com/in/jimblomo",
+  "location": null,
+  "email": "jim.blomo+github@gmail.com",
+  "hireable": false,
+  "bio": null,
+  "public_repos": 39,
+  "public_gists": 8,
+  "followers": 33,
+  "following": 3,
+  "created_at": "2009-01-08T20:50:42Z",
+  "updated_at": "2014-09-30T16:42:02Z"
+}
+
+2. curl -i "https://api.github.com/users/jblomo/repos?type=member"
+
+Using grep, here is a list of the 27 repositories jblomo is a member of.
+
+harbinger:~$ curl -i "https://api.github.com/users/jblomo/repos?type=member" | grep -E "git_url"
+    "git_url": "git://github.com/brynamo/webarch2014.git",
+    "git_url": "git://github.com/corymc/webarch2013.git",
+    "git_url": "git://github.com/davidmarin/doloop.git",
+    "git_url": "git://github.com/ellenvanwyk/webarch2014.git",
+    "git_url": "git://github.com/evphan/webarch2013.git",
+    "git_url": "git://github.com/haroonrasheed333/datamining290.git",
+    "git_url": "git://github.com/iaperez/datamining290.git",
+    "git_url": "git://github.com/iaperez/DataMiningProject-WhoMadeThatMovie.git",
+    "git_url": "git://github.com/ikenohate09/project-webarch2013.git",
+    "git_url": "git://github.com/kanderek/project-webarch.git",
+    "git_url": "git://github.com/kayvannj/webarch2013.git",
+    "git_url": "git://github.com/laykopi/project-webarch2013.git",
+    "git_url": "git://github.com/levand/clj-soy.git",
+    "git_url": "git://github.com/parvizu/WebArch-finalProjectPart1.git",
+    "git_url": "git://github.com/parvizu/WebArch-finalProjectPart2.git",
+    "git_url": "git://github.com/parvizu/webarch2013.git",
+    "git_url": "git://github.com/pjloury/webarch2013.git",
+    "git_url": "git://github.com/prabhamatta/datamining290.git",
+    "git_url": "git://github.com/priya-I/AOMining.git",
+    "git_url": "git://github.com/priya-I/datamining290.git",
+    "git_url": "git://github.com/roidrage/lograge.git",
+    "git_url": "git://github.com/samtokheim/datamining290.git",
+    "git_url": "git://github.com/seekshreyas/shrink.git",
+    "git_url": "git://github.com/shaohan/project-webarch2013.git",
+    "git_url": "git://github.com/sonalisharma/datamining290.git",
+100  139k  100  139k    0     0   150k      0 --:--:-- --:--:-- --:--:--  164k
+    "git_url": "git://github.com/tantanm/webarch2013.git",
+
+The count of the list:
+
+harbinger:~$ curl -i "https://api.github.com/users/jblomo/repos?type=member" | grep -E "git_url" | wc -l
+27
+
+
+3. curl -i "https://api.github.com/repos/Yelp/mrjob/contributors"
+
+Using grep, here is a list of the 30 contributors:
+
+curl -i "https://api.github.com/repos/Yelp/mrjob/contributors" | grep -E "login"
+    "login": "davidmarin",
+    "login": "irskep",
+    "login": "sudarshang",
+    "login": "tarnfeld",
+    "login": "anusha-r",
+    "login": "ashkop",
+    "login": "icio",
+    "login": "msabramo",
+    "login": "ddehghan",
+    "login": "dnephin",
+    "login": "ewencp",
+    "login": "Roguelazer",
+    "login": "ShusenLiu",
+    "login": "timtadh",
+    "login": "jblomo",
+    "login": "PhilSwanson",
+    "login": "smallredbean",
+    "login": "ymilki",
+    "login": "ap-ensighten",
+    "login": "bretthoerner",
+    "login": "unshift",
+    "login": "geota",
+    "login": "dterror",
+    "login": "servetus",
+    "login": "kienpham2000",
+    "login": "baris",
+    "login": "iph",
+    "login": "t2y",
+    "login": "derwiki",
+    "login": "zonca",
+
+The count of the list:
+
+harbinger:~$ curl -i "https://api.github.com/repos/Yelp/mrjob/contributors" | grep -E "login" | wc -l
+30
+
+4. curl -i "https://api.github.com/repos/jblomo/webarch253/commits/9aae663bd3e6bfde4b16ee449e2a2e7653ba05e6"
+
+The message of the first commit to the webarch253 repository owned by jblomo is "initial".
+
+harbinger:~$ curl -i "https://api.github.com/repos/jblomo/webarch253/commits/9aae663bd3e6bfde4b16ee449e2a2e7653ba05e6" | grep -E "message"
+"message": "initial",
