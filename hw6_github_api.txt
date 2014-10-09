@@ -143,9 +143,27 @@ The count of the list:
 harbinger:~$ curl -i "https://api.github.com/repos/Yelp/mrjob/contributors" | grep -E "login" | wc -l
 30
 
-4. curl -i "https://api.github.com/repos/jblomo/webarch253/commits/9aae663bd3e6bfde4b16ee449e2a2e7653ba05e6"
+4. The message of the first commit to the webarch253 repository owned by jblomo is "initial".
 
-The message of the first commit to the webarch253 repository owned by jblomo is "initial".
+harbinger:~/webarch2014$ curl -i "https://api.github.com/repos/jblomo/webarch253/commits?until=2012-09-01T20:20:00Z" | grep -E "message"
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0      "message": "style cleanups",
+      "message": "link, style=,  pink highlighting",
+      "message": "updates; color scheme",
+      "message": "week 2",
+      "message": "HTML slides",
+      "message": "fix summary wording",
+      "message": "bootstrapped README serving as index.html",
+      "message": "slide & HW corrections",
+      "message": "slide cleanup",
+      "message": "index page",
+      "message": "instructions for submitting HW",
+      "message": "browsers",
+      "message": "css",
+      "message": "Intro slides",
+      "message": "working slides",
+      "message": "initial",
 
 harbinger:~$ curl -i "https://api.github.com/repos/jblomo/webarch253/commits/9aae663bd3e6bfde4b16ee449e2a2e7653ba05e6" | grep -E "message"
 "message": "initial",
