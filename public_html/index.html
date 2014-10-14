@@ -1,9 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Jim's Page</title>
+        <title>Jason's Page</title>
+	 <link rel="stylesheet" type="text/css" href="index_style.css">
+         <link rel="stylesheet" type="text/css" href="youtube_style.css">
     </head>
     <body>
-        <p>Hello class! This is a tiny HTML page.</p>
+	<div id="welcome">Welcome to my page!</div>
+	<h1>Internet</h1>
+	<h2>Music</h2>
+
+         <!-- Cascading happens with the p element. -->
+         <!-- index_style.css and inline css affect the element -->
+
+	 <p style="color:red;margin-left:20px;">The YouTube music channels I like listening to include:</p>
+	<ol>
+	<!-- The external links to the YouTube channels were accurate and unbroken at the time of publication. -->
+	<li class="youtube_channel"><a href="http://www.youtube.com/user/peterhollens">Peter Hollens</a>, a capella solo singer</li>
+	<li class="youtube_channel"><a href="http://www.youtube.com/user/PTXofficial">Pentatonix</a>, a capella group</li>
+	<li class="youtube_channel" id="Gardiner"><a href="http://www.youtube.com/user/GardinerSisters">Gardiner Sisters</a>, a group of singing sisters</li>
+	</ol>
+	<h1>News</h1>
+	<div>I read most of my news from <em><a href="http://www.nytimes.com/">The New York Times</a></em> <img src="nytimes_logo.svg" alt="The New York Times logo" height="20"> and <a href="http://news.google.com/">Google News</a>.</div>
     </body>
 </html>
