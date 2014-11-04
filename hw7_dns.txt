@@ -1,0 +1,139 @@
+1.
+
+List of IPs:
+
+Root server: 199.7.83.42
+First Additional Section: 192.5.6.30
+Second Additional Section: 208.78.70.18
+
+List of commands:
+
+harbinger:~$ host -v -t A m.yelp.com 199.7.83.42
+harbinger:~$ host -v -t A m.yelp.com 192.5.6.30
+harbinger:~$ host -v -t A m.yelp.com 208.78.70.18
+
+===============================================================================
+
+harbinger:~$ host -v -t A m.yelp.com 199.7.83.42
+Trying "m.yelp.com"
+Using domain server:
+Name: 199.7.83.42
+Address: 199.7.83.42#53
+Aliases: 
+
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 59106
+;; flags: qr rd; QUERY: 1, ANSWER: 0, AUTHORITY: 13, ADDITIONAL: 14
+
+;; QUESTION SECTION:
+;m.yelp.com.			IN	A
+
+;; AUTHORITY SECTION:
+com.			172800	IN	NS	a.gtld-servers.net.
+com.			172800	IN	NS	b.gtld-servers.net.
+com.			172800	IN	NS	c.gtld-servers.net.
+com.			172800	IN	NS	d.gtld-servers.net.
+com.			172800	IN	NS	e.gtld-servers.net.
+com.			172800	IN	NS	f.gtld-servers.net.
+com.			172800	IN	NS	g.gtld-servers.net.
+com.			172800	IN	NS	h.gtld-servers.net.
+com.			172800	IN	NS	i.gtld-servers.net.
+com.			172800	IN	NS	j.gtld-servers.net.
+com.			172800	IN	NS	k.gtld-servers.net.
+com.			172800	IN	NS	l.gtld-servers.net.
+com.			172800	IN	NS	m.gtld-servers.net.
+
+;; ADDITIONAL SECTION:
+a.gtld-servers.net.	172800	IN	A	192.5.6.30
+b.gtld-servers.net.	172800	IN	A	192.33.14.30
+c.gtld-servers.net.	172800	IN	A	192.26.92.30
+d.gtld-servers.net.	172800	IN	A	192.31.80.30
+e.gtld-servers.net.	172800	IN	A	192.12.94.30
+f.gtld-servers.net.	172800	IN	A	192.35.51.30
+g.gtld-servers.net.	172800	IN	A	192.42.93.30
+h.gtld-servers.net.	172800	IN	A	192.54.112.30
+i.gtld-servers.net.	172800	IN	A	192.43.172.30
+j.gtld-servers.net.	172800	IN	A	192.48.79.30
+k.gtld-servers.net.	172800	IN	A	192.52.178.30
+l.gtld-servers.net.	172800	IN	A	192.41.162.30
+m.gtld-servers.net.	172800	IN	A	192.55.83.30
+a.gtld-servers.net.	172800	IN	AAAA	2001:503:a83e::2:30
+
+Received 488 bytes from 199.7.83.42#53 in 23 ms
+
+===============================================================================
+
+harbinger:~$ host -v -t A m.yelp.com 192.5.6.30
+Trying "m.yelp.com"
+Using domain server:
+Name: 192.5.6.30
+Address: 192.5.6.30#53
+Aliases: 
+
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 52600
+;; flags: qr rd; QUERY: 1, ANSWER: 0, AUTHORITY: 4, ADDITIONAL: 4
+
+;; QUESTION SECTION:
+;m.yelp.com.			IN	A
+
+;; AUTHORITY SECTION:
+yelp.com.		172800	IN	NS	ns1.p18.dynect.net.
+yelp.com.		172800	IN	NS	ns3.p18.dynect.net.
+yelp.com.		172800	IN	NS	ns2.p18.dynect.net.
+yelp.com.		172800	IN	NS	ns4.p18.dynect.net.
+
+;; ADDITIONAL SECTION:
+ns1.p18.dynect.net.	172800	IN	A	208.78.70.18
+ns3.p18.dynect.net.	172800	IN	A	208.78.71.18
+ns2.p18.dynect.net.	172800	IN	A	204.13.250.18
+ns4.p18.dynect.net.	172800	IN	A	204.13.251.18
+
+Received 178 bytes from 192.5.6.30#53 in 75 ms
+
+===============================================================================
+
+harbinger:~$ host -v -t A m.yelp.com 208.78.70.18
+Trying "m.yelp.com"
+Using domain server:
+Name: 208.78.70.18
+Address: 208.78.70.18#53
+Aliases: 
+
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 3954
+;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;m.yelp.com.			IN	A
+
+;; ANSWER SECTION:
+m.yelp.com.		60	IN	CNAME	m.gslb.yelp.com.
+
+Received 49 bytes from 208.78.70.18#53 in 4 ms
+
+===============================================================================
+
+
+
+2.
+
+m.yelp.com's IP addresses are 199.255.189.234 and 199.255.189.34.
+
+harbinger:~$ host m.yelp.com
+m.yelp.com is an alias for m.gslb.yelp.com.
+m.gslb.yelp.com is an alias for m.sfo1.yelp.com.
+m.sfo1.yelp.com has address 199.255.189.234
+m.sfo1.yelp.com has address 199.255.189.34
+
+
+3.
+
+The IP packets do not leave the Berkeley network when traveling to amplab.cs.berkeley.edu from harbinger.ischool.berkeley.edu.
+
+harbinger:~$ traceroute amplab.cs.berkeley.edu
+traceroute to amplab.cs.berkeley.edu (128.32.37.248), 30 hops max, 60 byte packets
+ 1  g3-35.inr-211-srb.Berkeley.EDU (128.32.78.3)  1.074 ms  1.039 ms  1.113 ms
+ 2  t6-1.inr-202-reccev.Berkeley.EDU (128.32.255.126)  0.694 ms  0.799 ms  0.812 ms
+ 3  evans-eecs-br-10GE.EECS.Berkeley.EDU (128.32.255.54)  1.820 ms  1.821 ms  1.793 ms
+ 4  soda-10g-edge.EECS.Berkeley.EDU (169.229.59.242)  3.305 ms  3.293 ms  3.384 ms
+ 5  www-research2.CS.Berkeley.EDU (128.32.37.248)  1.563 ms !X  1.570 ms !X  1.585 ms !X
+
+

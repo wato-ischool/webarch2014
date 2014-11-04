@@ -1,0 +1,85 @@
+1. SELECT
+
+   1. How many links were added afer 2014-10-14?
+
+   Nine links. The first SQL query below generates the nine links. The second query counts them.
+
+mysql> SELECT created FROM links WHERE created > '2014-10-14';
++------------+
+| created    |
++------------+
+| 2014-10-22 |
+| 2014-11-01 |
+| 2014-10-17 |
+| 2014-10-28 |
+| 2014-10-16 |
+| 2014-10-15 |
+| 2014-11-02 |
+| 2014-10-15 |
+| 2014-10-20 |
++------------+
+9 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(created) FROM links WHERE created > '2014-10-14';
++----------------+
+| COUNT(created) |
++----------------+
+|              9 |
++----------------+
+1 row in set (0.00 sec)
+
+
+   2. How many links that were added before 2014-10-14 have fewer than 40 hits?
+
+   Four links. The first SQL query below generates the four links. The second query counts them.
+
+mysql> SELECT created, hit_count FROM links WHERE created < '2014-10-14' AND hit_count < 40;
++------------+-----------+
+| created    | hit_count |
++------------+-----------+
+| 2014-09-14 |        32 |
+| 2014-08-30 |        32 |
+| 2014-10-07 |         7 |
+| 2014-08-31 |        39 |
++------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(created) FROM links WHERE created < '2014-10-14' AND hit_count < 40;
++----------------+
+| COUNT(created) |
++----------------+
+|              4 |
++----------------+
+1 row in set (0.00 sec)
+
+
+
+2. INSERT
+
+    1. Insert your own URL with a date before 2014-10-14 with greater than 40 hits. 
+
+mysql> INSERT INTO links Values("http://eecs.berkeley.edu/", "abcd", 50, "2014-10-01");
+
+    2. Is it possible that someone querying the database at the same time could see your insert partially complete (eg. only see some fields filled in)? What database property is this related to? 
+
+    It is not possible that someone querying the database at the same time could see my insert partially complete. The database property this is related to is atomicity, which means all updates happen or none do.
+
+
+
+3. UPDATE
+
+    1. Increment the hit_count for only your new row. What is the new count?
+
+    The new count is 51.
+
+mysql> UPDATE links SET hit_count = hit_count + 1 WHERE long_url = "http://eecs.berkeley.edu/" AND created = "2014-10-01";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM links WHERE long_url = "http://eecs.berkeley.edu/";+---------------------------+-----------+-----------+------------+
+| long_url                  | short_url | hit_count | created    |
++---------------------------+-----------+-----------+------------+
+| http://eecs.berkeley.edu/ | abcd      |        51 | 2014-10-01 |
++---------------------------+-----------+-----------+------------+
+1 row in set (0.00 sec)
+
