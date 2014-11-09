@@ -1,0 +1,24 @@
+strong {
+    font-weight: bold; color: red;
+    font-size: 45px;
+}
+
+em {
+    font-style: italic;
+}
+
+/* The id "welcome" is used only once in the HTML file. */
+#welcome {
+    font-size: 40px;
+    text-align: center;
+    color: purple;
+}
+
+p {
+    font-style: normal;
+}
+
+#Gardiner {
+    font-weight: bold;
+    color: green;
+}
