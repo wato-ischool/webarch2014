@@ -1,9 +1,54 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Jim's Page</title>
+        <title>Jason's Page</title>
+	<link rel="stylesheet" type="text/css" href="index_style.css">
+        <link rel="stylesheet" type="text/css" href="youtube_style.css">
+        <meta name="description" content="YouTube and news websites">
     </head>
     <body>
-        <p>Hello class! This is a tiny HTML page.</p>
+	<div id="welcome">Welcome to my page!</div>
+        <h1>Personal information</h1>
+        <div itemscope itemtype="http://schema.org/Person">
+          <p>Name: <span itemprop="name">Jason</span></p>
+          <p>Job title: <span itemprop="jobTitle">Student</span></p>
+          <p>Affiliation: <span itemprop="affiliation">University of California, Berkeley</span></p>
+          <p>Nationality: <span itemprop="nationality">American</span></p>
+          <p>Works for: <span itemprop="worksFor">Self</span></p>
+          <p>Email: <span itemprop="email">wato at this domain name</span></p>
+        </div>
+        <h1>Organization</h1>
+        <div itemscope itemtype="http://schema.org/Organization">
+        <p>Name: <span itemprop="name">School of Information</span></p>
+        <p>Address: <span itemprop="address">102 South Hall Rd, Berkeley, CA 94720</span></p>
+        <p>Phone number: <span itemprop="telephone">(510) 642-1464</span></p>
+        <p>Fax number: <span itemprop="faxNumber">(510) 642-5814</span></p>
+        <p>Email: <span itemprop="email">webmaster@ischool.berkeley.edu</span></p>
+        <p>URL: <a href="http://www.ischool.berkeley.edu/"><span itemprop="url">http://www.ischool.berkeley.edu</span></a></p>
+        <p>Founding date: <span itemprop="foundingDate">1994</span></p>
+        </div>
+        <h1>Required Textbook for Info 257</h1>
+        <div itemscope itemtype="http://schema.org/Book">
+        <p>Title: <span itemprop="name">Modern Database Management</span></p>
+        <p>Authors: <span itemprop="author">Jeffrey A. Hoffer, V. Ramesh and Heikki Topi</span></p>
+        <p>Book edition: <span itemprop="bookEdition">Eleventh Edition</span></p>
+        <p>Publisher: <span itemprop="publisher">Prentice Hall (Pearson Educational)</span></p>
+        <p>Copyright year: <span itemprop="copyrightYear">2012</span></p>
+        </div>
+	<h1>Internet</h1>
+	<h2>Music</h2>
+
+         <!-- Cascading happens with the p element. -->
+         <!-- index_style.css and inline css affect the element -->
+
+	 <p style="color:red;margin-left:20px;">The YouTube music channels I like listening to include:</p>
+	<ol>
+	<!-- The external links to the YouTube channels were accurate and unbroken at the time of publication. -->
+	<li class="youtube_channel"><a href="http://www.youtube.com/user/peterhollens">Peter Hollens</a>, a capella solo singer</li>
+	<li class="youtube_channel"><a href="http://www.youtube.com/user/PTXofficial">Pentatonix</a>, a capella group</li>
+	<li class="youtube_channel" id="Gardiner"><a href="http://www.youtube.com/user/GardinerSisters">Gardiner Sisters</a>, a group of singing sisters</li>
+	</ol>
+	<h1>News</h1>
+	<div>I read most of my news from <em><a href="http://www.nytimes.com/">The New York Times</a></em> <img src="nytimes_logo.svg" alt="The New York Times logo" height="20"> and <a href="http://news.google.com/">Google News</a>.</div>
     </body>
 </html>

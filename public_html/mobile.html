@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Mobile Media Screen Test</title>
+        <link rel="stylesheet" type="text/css" href="mobile.css">
+    </head>
+    <body>
+        <style>
+            body { color: blue; font-size: 24px; }
+            @media screen and (max-width: 480px) {
+                body { color: hotpink; }
+                .text { -webkit-column-count: 1; /* Chrome, Safari, Opera */
+  			  -moz-column-count: 1; /* Firefox */
+    			column-count: 1;
+			color: green;
+			float: left; }
+            }
+            @media screen and (min-width: 481px) and (max-width: 700px) {
+                .text { -webkit-column-count: 2; /* Chrome, Safari, Opera */
+                          -moz-column-count: 2; /* Firefox */
+                        column-count: 2;
+			color: red;
+			float: left; }
+            }
+            @media screen and (min-width: 701px) {
+                .text { -webkit-column-count: 3; /* Chrome, Safari, Opera */
+                          -moz-column-count: 3; /* Firefox */
+                        column-count: 3;
+			color: orange;
+			float:left; }
+            }
+        </style>
+	<script>
+	function myFunction() {
+		document.getElementById("test").style.background-color = "red";
+	}
+	</script>
+    	<div class="text" id="test" onclick="myFunction()">
+	 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pulvinar sodales ex quis semper. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc venenatis purus lorem, id condimentum purus finibus ut. Curabitur congue venenatis est, vitae ultricies erat suscipit id. Mauris quis tortor est. Aliquam gravida massa est, id volutpat leo tempus viverra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur iaculis, est ut sagittis dictum, ligula augue ultrices justo, vel consectetur purus libero vitae urna. Pellentesque interdum tempus arcu, porta tincidunt leo scelerisque et. Sed pellentesque malesuada tellus, a tristique odio euismod sit amet. Sed congue, libero ut suscipit iaculis, mauris ligula vehicula quam, sed semper purus mi sit amet est. Sed sed luctus purus. Aliquam vel nisi vel turpis consectetur feugiat id convallis justo. Donec ut quam in est finibus mollis. Quisque ornare efficitur nisi, id condimentum lorem ornare a. 
+	</div>
+    </body>
+</html>

@@ -4,7 +4,7 @@ processed by MapReduce/mrjob.
 This program takes a CSV data file and outputs a new CSV data file with the
 user ID appended to each Vote/Visit.  Run like so:
 
-    python combine_user_visits.py mrjob/anonymous-msweb.data > user-visits_msweb.data
+    python combine_user_visits.py anonymous-msweb.data > user-visits_msweb.data
 """
     
 import csv
@@ -32,15 +32,17 @@ def main():
         if cell[0] == 'C':
             ###
             # FILL IN by replacing below:
-            pass
+            # pass
             # What should we update when we see a new 'C' row?
             ##/
+            current_user = cell[2]
         elif cell[0] == 'V':
             ###
             # FILL IN by replacing below:
-            pass
+            # pass
             # What should we update when we see a new 'V' row?
             ##/
+            cell.append(current_user)
 
         csv_writer.writerow(cell)
 

@@ -1,38 +1,38 @@
-"""Find Vroots with more than 400 visits.
+"""Find users with > 20 visits.
 
 This program will take a CSV data file and output tab-seperated lines of
 
-    Vroot -> number of visits
+    users -> number of visits
 
 To run:
 
-    python top_pages.py anonymous-msweb.data
+    python top_users.py user-visits_msweb.data
 
 To store output:
 
-    python top_pages.py anonymous-msweb.data > top_pages.out
+    python top_users.py user-visits_msweb.data > top_users.out
 """
 
 from mrjob.job import MRJob
 from combine_user_visits import csv_readline
 
-class TopPages(MRJob):
+class TopUsers(MRJob):
 
     def mapper(self, line_no, line):
-        """Extracts the Vroot that was visited"""
+        """Extracts the user and number of visits"""
         cell = csv_readline(line)
         if cell[0] == 'V':
-            yield cell[1], int(cell[2]) ### FILL IN
+            yield cell[3], int(cell[2]) ### FILL IN
                   # What  Key, Value  do we want to output?
 
-    def reducer(self, vroot, visit_counts):
+    def reducer(self, user, visit_counts):
         """Sumarizes the visit counts by adding them together.  If total visits
-        is more than 400, yield the results"""
+        is more than 20, yield the results"""
         total = sum(visit_counts) ### FILL IN
                 # How do we calculate the total visits from the visit_counts?
-        if total > 400:
-            yield vroot, total ### FILL IN
+        if total > 20:
+            yield user, total ### FILL IN
                   # What  Key, Value  do we want to output?
         
 if __name__ == '__main__':
-    TopPages.run()
+    TopUsers.run()
